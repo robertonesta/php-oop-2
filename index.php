@@ -14,7 +14,7 @@ class computer{
 }
 class brand{
 
-    public function __construct(public string $model, public float $codeNumber)
+    public function __construct(public string $model, public string $codeNumber)
     {
         $this->model=$model;
         $this->codeNumber=$codeNumber;
@@ -22,7 +22,7 @@ class brand{
 }
 class RAM{
 
-    public function __construct(public string $speed, public float $memory)
+    public function __construct(public string $speed, public string $memory)
     {
         $this->speed=$speed;
         $this->memory=$memory;
@@ -30,7 +30,7 @@ class RAM{
 }
 class CPU{
 
-    public function __construct(public string $core, public float $frequency)
+    public function __construct(public string $core, public string $frequency)
     {
         $this->core=$core;
         $this->frequency=$frequency;
@@ -67,7 +67,7 @@ class desktop extends computer{
 
 class mouse {
 
-    public function __construct(public string $model, public int $keys)
+    public function __construct(public string $model, public string $keys)
     {
         $this->model=$model;
         $this->keys=$keys;
@@ -95,7 +95,7 @@ class laptop extends computer{
 
 class webcam {
 
-    public function __construct(public string $model, public float $resolution)
+    public function __construct(public string $model, public string $resolution)
     {
         $this->model=$model;
         $this->resolution=$resolution;
@@ -110,8 +110,14 @@ class battery {
     }
 }
 
-$desktopAppleiMac = new desktop (new brand ("Apple iMac","MMQA2xx/A"), new RAM("1600MHz","32GB"), new CPU ("M1 8core", "3GHz"), new memory("512GB"), new display("27inch", "Display Retina 4,5K"), new mouse("magic mouse", 2), new keyboard("american", "Magic Keyboard con Touch ID"));
-$laptopAppleMacbook = new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new RAM("1600MHz", "16GB"), new CPU("M2 Pro 10core", "3GHz"), new memory("256GB"), new display("14inch", "Display Liquid Retina XDR1"), new webcam("Videocamera FaceTime HD", "1080p"), new battery("18 hrs"));
+//$desktopAppleiMac = new desktop (new brand ("Apple iMac","MMQA2xx/A"), new RAM("1600MHz","32GB"), new CPU ("M1 8core", "3GHz"), new memory("512GB"), new display("27inch", "Display Retina 4,5K"), new mouse("magic mouse", "2"), new keyboard("american", "Magic Keyboard con Touch ID"));
+//$laptopAppleMacbook = new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new RAM("1600MHz", "16GB"), new CPU("M2 Pro 10core", "3GHz"), new memory("256GB"), new display("14inch", "Display Liquid Retina XDR1"), new webcam("Videocamera FaceTime HD", "1080p"), new battery("18 hrs"));
+
+
+$computers = [
+    new desktop (new brand ("Apple iMac","MMQA2xx/A"), new RAM("1600MHz","32GB"), new CPU ("M1 8core", "3GHz"), new memory("512GB"), new display("27inch", "Display Retina 4,5K"), new mouse("magic mouse", "2"), new keyboard("american", "Magic Keyboard con Touch ID")),
+    new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new RAM("1600MHz", "16GB"), new CPU("M2 Pro 10core", "3GHz"), new memory("256GB"), new display("14inch", "Display Liquid Retina XDR1"), new webcam("Videocamera FaceTime HD", "1080p"), new battery("18 hrs"))
+];
 
 ?>
 
@@ -121,9 +127,32 @@ $laptopAppleMacbook = new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
     <title>OOP 2</title>
 </head>
 <body>
-    
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($computers as $computer): ?>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">
+                                    <?php echo $computer->brand->model ?>
+                                </h4>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
