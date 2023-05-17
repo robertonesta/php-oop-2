@@ -2,42 +2,53 @@
 
 class computer{
 
-    public function __construct(public model $model, public RAM $RAM, public CPU $CPU, public memory $memory)
+    public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory)
     {
-        $this->model= $model;
-        $this->RAM= $RAM;
-        $this->CPU= $CPU;
-        $this->memory= $memory;
+        $this->brand=$brand;
+        $this->RAM=$RAM;
+        $this->CPU=$CPU;
+        $this->memory=$memory;
     }
 
 }
-class model{
+class brand{
 
-    public function __construct()
+    public function __construct(public string $model, public string $codeNumber)
     {
-        
+        $this->model=$model;
+        $this->codeNumber=$codeNumber;
     }
 }
 class RAM{
 
-    public function __construct()
+    public function __construct(public string $speed, public int $MHz)
     {
-        
+        $this->speed=$speed;
+        $this->MHz=$MHz;
     }
 }
 class CPU{
 
-    public function __construct()
+    public function __construct(public string $core, public string $frequency)
     {
-        
+        $this->core=$core;
+        $this->frequency=$frequency;
     }
 }
 class memory{
 
-    public function __construct()
+    public function __construct(public string $type, public string $capacity)
     {
-        
+        $this->type=$type;
+        $this->capacity=$capacity;
     }
+}
+
+class desktop extends computer{
+
+}
+class laptop extends computer{
+    
 }
 
 
