@@ -1,123 +1,14 @@
 <?php
 
-class computer{
+include __DIR__ . "/computer.php";
+include __DIR__ . "/desktop.php";
+include __DIR__ . "/laptop.php";
 
-    public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display)
-    {
-        $this->brand=$brand;
-        $this->RAM=$RAM;
-        $this->CPU=$CPU;
-        $this->memory=$memory;
-        $this->display=$display;
-    }
-
-}
-class brand{
-
-    public function __construct(public string $model, public string $codeNumber)
-    {
-        $this->model=$model;
-        $this->codeNumber=$codeNumber;
-    }
-}
-class RAM{
-
-    public function __construct(public string $speed, public string $memory)
-    {
-        $this->speed=$speed;
-        $this->memory=$memory;
-    }
-}
-class CPU{
-
-    public function __construct(public string $core, public string $frequency)
-    {
-        $this->core=$core;
-        $this->frequency=$frequency;
-    }
-}
-class memory{
-
-    public function __construct(public string $capacity)
-    {
-        $this->capacity=$capacity;
-    }
-}
-
-class display{
-
-    public function __construct(public string $size, public string $resolution)
-    {
-        $this->size=$size;
-        $this->resolution=$resolution;
-    }
-}
-
-
-class desktop extends computer{
-
-    public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display, public mouse $mouse, public keyboard $keyboard){
-        parent::__construct($brand, $RAM, $CPU, $memory, $display);
-        {
-            $this->mouse=$mouse;
-            $this->keyboard=$keyboard;
-        }
-    }
-}
-
-class mouse {
-
-    public function __construct(public string $model, public string $keys)
-    {
-        $this->model=$model;
-        $this->keys=$keys;
-    }
-
-}
-class keyboard {
-
-    public function __construct(public string $layout, public string $model)
-    {
-        $this->layout=$layout;
-        $this->model=$model;
-    }
-}
-class laptop extends computer{
-
-    public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display, public webcam $webcam, public battery $battery){
-        parent::__construct($brand, $RAM, $CPU, $memory, $display);
-        {
-            $this->webcam=$webcam;
-            $this->battery=$battery;
-        }
-    }
-}
-
-class webcam {
-
-    public function __construct(public string $model, public string $resolution)
-    {
-        $this->model=$model;
-        $this->resolution=$resolution;
-    }
-
-}
-class battery {
-
-    public function __construct(public string $batteryLife)
-    {
-        $this->batteryLife=$batteryLife;
-    }
-}
 
 //$desktopAppleiMac = new desktop (new brand ("Apple iMac","MMQA2xx/A"), new RAM("1600MHz","32GB"), new CPU ("M1 8core", "3GHz"), new memory("512GB"), new display("27inch", "Display Retina 4,5K"), new mouse("magic mouse", "2"), new keyboard("american", "Magic Keyboard con Touch ID"));
 //$laptopAppleMacbook = new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new RAM("1600MHz", "16GB"), new CPU("M2 Pro 10core", "3GHz"), new memory("256GB"), new display("14inch", "Display Liquid Retina XDR1"), new webcam("Videocamera FaceTime HD", "1080p"), new battery("18 hrs"));
 
-
-$computers = [
-    new desktop (new brand ("Apple iMac","MMQA2xx/A"), new RAM("1600MHz","32GB"), new CPU ("M1 8core", "3GHz"), new memory("512GB"), new display("27inch", "Display Retina 4,5K"), new mouse("magic mouse", "2"), new keyboard("american", "Magic Keyboard con Touch ID")),
-    new laptop (new brand ("Apple Macbook", "MMQA2xx/A"), new RAM("1600MHz", "16GB"), new CPU("M2 Pro 10core", "3GHz"), new memory("256GB"), new display("14inch", "Display Liquid Retina XDR1"), new webcam("Videocamera FaceTime HD", "1080p"), new battery("18 hrs"))
-];
+include __DIR__ . "/array.php"
 
 ?>
 
@@ -133,12 +24,15 @@ $computers = [
     <title>OOP 2</title>
 </head>
 <body>
+    <div class="header">
+        <h1 class="text-center my-3">Computers</h1>
+    </div>
     <div class="main">
         <div class="container">
-            <div class="row">
+            <div class="row g-3">
                 <?php foreach ($computers as $computer): ?>
-                    <div class="col">
-                        <div class="card">
+                    <div class="col-4">
+                        <div class="card h-100 shadow">
                             <div class="card-header">
                                 <h4 class="text-center">
                                     <?php echo $computer->brand->model ?>
