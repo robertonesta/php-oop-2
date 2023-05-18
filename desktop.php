@@ -2,6 +2,7 @@
 
 class desktop extends computer{
 
+
     public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display, public mouse $mouse, public keyboard $keyboard){
         parent::__construct($brand, $RAM, $CPU, $memory, $display);
         {

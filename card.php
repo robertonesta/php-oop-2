@@ -65,7 +65,7 @@
     </div>
     <div class="card-footer">
         <p>
-            <?php echo $computer->getType(); ?>
+           <strong class="text-uppercase"><?php echo $computer->getType(); ?></strong>
         </p>
     </div>
 </div>
