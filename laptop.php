@@ -1,6 +1,9 @@
 <?php
 
+require_once __DIR__ . "/portability.php";
 class laptop extends computer{
+
+    use portability;
 
     public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display, public webcam $webcam, public battery $battery){
         parent::__construct($brand, $RAM, $CPU, $memory, $display);
