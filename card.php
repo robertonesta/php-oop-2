@@ -63,4 +63,9 @@
             </span>
         <?php endif ?>
     </div>
+    <div class="card-footer">
+        <p>
+            <?php echo $computer->getType(); ?>
+        </p>
+    </div>
 </div>

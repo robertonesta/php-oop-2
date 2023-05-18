@@ -9,6 +9,10 @@ class laptop extends computer{
             $this->battery=$battery;
         }
     }
+    public function getType()
+    {
+        return "Laptop";
+    }
 }
 
 class webcam {

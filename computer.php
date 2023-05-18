@@ -11,6 +11,11 @@ public function __construct(public brand $brand, public RAM $RAM, public CPU $CP
     $this->display=$display;
 }
 
+public function getType()
+    {
+        return "Computer";
+    }
+
 }
 class brand{
 

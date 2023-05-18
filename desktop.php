@@ -9,6 +9,10 @@ class desktop extends computer{
             $this->keyboard=$keyboard;
         }
     }
+    public function getType()
+    {
+        return "Desktop";
+    }
 }
 
 class mouse {
