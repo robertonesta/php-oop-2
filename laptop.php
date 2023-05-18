@@ -16,6 +16,7 @@ class laptop extends computer{
     {
         return "Laptop";
     }
+
 }
 
 class webcam {
@@ -34,3 +35,4 @@ class battery {
         $this->batteryLife=$batteryLife;
     }
 }
+

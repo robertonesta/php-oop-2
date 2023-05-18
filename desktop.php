@@ -1,7 +1,9 @@
 <?php
+include __DIR__ . "/portability.php";
 
 class desktop extends computer{
 
+    use portability;
 
     public function __construct(public brand $brand, public RAM $RAM, public CPU $CPU, public memory $memory, public display $display, public mouse $mouse, public keyboard $keyboard){
         parent::__construct($brand, $RAM, $CPU, $memory, $display);

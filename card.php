@@ -61,6 +61,14 @@
                     <li><?php echo $computer->battery->batteryLife ?></li>
                 </ul>
             </span>
+            <span>
+                <p>
+                    <?php
+                        try{$computer->set_carry_elements("case");
+                        echo $computer->get_carry_elements_as_string();}
+                        catch (Exception $e){echo $e->getMessage();} ?>
+                </p>
+            </span>
         <?php endif ?>
     </div>
     <div class="card-footer">
